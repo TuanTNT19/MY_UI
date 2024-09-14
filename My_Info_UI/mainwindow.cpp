@@ -1,3 +1,4 @@
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
@@ -6,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+
     ten = "Truong Nho Tuan";
     sinh = "08/12/2002";
     que = "Thanh Hoa";
@@ -20,8 +22,12 @@ MainWindow::MainWindow(QWidget *parent)
 
     dn->exec();
 
+    ui->newWidget->setVisible(false);
+    ui->newWidget->setStyleSheet("background-color:  #FFFFFF;");
+
     connect(ui->view,  &QPushButton::clicked, this, &MainWindow::on_view_clicked);
     connect(ui->setting, &QPushButton::clicked, this, &MainWindow::on_setting_clicked);
+    connect(ui->ipshow, &QPushButton::clicked, this, &MainWindow::on_ipshow_clicked);
 }
 
 MainWindow::~MainWindow()
@@ -29,6 +35,7 @@ MainWindow::~MainWindow()
     delete ui;
     delete view;
     delete setting;
+    delete dn;
 }
 
 
@@ -67,3 +74,10 @@ void MainWindow::on_setting_clicked()
 
     }
 }
+
+void MainWindow::on_ipshow_clicked()
+{
+
+        ui->newWidget->setVisible(true);
+}
+

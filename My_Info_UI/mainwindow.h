@@ -25,6 +25,8 @@ private slots:
 
     void on_setting_clicked();
 
+    void on_ipshow_clicked();
+
 private:
     QString ten;
     QString sinh;
