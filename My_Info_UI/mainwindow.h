@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include "LoginDialog.h"
 #include "ViewDialog.h"
-
+#include "SettingDialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -23,6 +23,8 @@ private slots:
 
     void on_view_clicked();
 
+    void on_setting_clicked();
+
 private:
     QString ten;
     QString sinh;
@@ -30,5 +32,6 @@ private:
     QString giaoduc;
     Ui::MainWindow *ui;
     ViewDialog *view;
+    SettingDialog *setting;
 };
 #endif // MAINWINDOW_H

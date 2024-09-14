@@ -17,12 +17,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     LoginDialog.cpp \
+    SettingDialog.cpp \
     ViewDialog.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     LoginDialog.h \
+    SettingDialog.h \
     ViewDialog.h \
     mainwindow.h
 

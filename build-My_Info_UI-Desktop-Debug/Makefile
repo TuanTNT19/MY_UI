@@ -53,16 +53,20 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../My_Info_UI/LoginDialog.cpp \
+		../My_Info_UI/SettingDialog.cpp \
 		../My_Info_UI/ViewDialog.cpp \
 		../My_Info_UI/main.cpp \
 		../My_Info_UI/mainwindow.cpp moc_LoginDialog.cpp \
+		moc_SettingDialog.cpp \
 		moc_ViewDialog.cpp \
 		moc_mainwindow.cpp
 OBJECTS       = LoginDialog.o \
+		SettingDialog.o \
 		ViewDialog.o \
 		main.o \
 		mainwindow.o \
 		moc_LoginDialog.o \
+		moc_SettingDialog.o \
 		moc_ViewDialog.o \
 		moc_mainwindow.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -142,8 +146,10 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
 		../My_Info_UI/My_Info_UI.pro ../My_Info_UI/LoginDialog.h \
+		../My_Info_UI/SettingDialog.h \
 		../My_Info_UI/ViewDialog.h \
 		../My_Info_UI/mainwindow.h ../My_Info_UI/LoginDialog.cpp \
+		../My_Info_UI/SettingDialog.cpp \
 		../My_Info_UI/ViewDialog.cpp \
 		../My_Info_UI/main.cpp \
 		../My_Info_UI/mainwindow.cpp
@@ -328,8 +334,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../My_Info_UI/LoginDialog.h ../My_Info_UI/ViewDialog.h ../My_Info_UI/mainwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../My_Info_UI/LoginDialog.cpp ../My_Info_UI/ViewDialog.cpp ../My_Info_UI/main.cpp ../My_Info_UI/mainwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../My_Info_UI/LoginDialog.h ../My_Info_UI/SettingDialog.h ../My_Info_UI/ViewDialog.h ../My_Info_UI/mainwindow.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../My_Info_UI/LoginDialog.cpp ../My_Info_UI/SettingDialog.cpp ../My_Info_UI/ViewDialog.cpp ../My_Info_UI/main.cpp ../My_Info_UI/mainwindow.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../My_Info_UI/mainwindow.ui $(DISTDIR)/
 
 
@@ -362,13 +368,18 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -std=gnu++11 -Wall -W -dM -E -o moc_predefs.h /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_LoginDialog.cpp moc_ViewDialog.cpp moc_mainwindow.cpp
+compiler_moc_header_make_all: moc_LoginDialog.cpp moc_SettingDialog.cpp moc_ViewDialog.cpp moc_mainwindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_LoginDialog.cpp moc_ViewDialog.cpp moc_mainwindow.cpp
+	-$(DEL_FILE) moc_LoginDialog.cpp moc_SettingDialog.cpp moc_ViewDialog.cpp moc_mainwindow.cpp
 moc_LoginDialog.cpp: ../My_Info_UI/LoginDialog.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/admin123/Desktop/qt_test/test10/build-My_Info_UI-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/admin123/Desktop/qt_test/test10/My_Info_UI -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../My_Info_UI/LoginDialog.h -o moc_LoginDialog.cpp
+
+moc_SettingDialog.cpp: ../My_Info_UI/SettingDialog.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/admin123/Desktop/qt_test/test10/build-My_Info_UI-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/admin123/Desktop/qt_test/test10/My_Info_UI -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../My_Info_UI/SettingDialog.h -o moc_SettingDialog.cpp
 
 moc_ViewDialog.cpp: ../My_Info_UI/ViewDialog.h \
 		moc_predefs.h \
@@ -406,6 +417,9 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 LoginDialog.o: ../My_Info_UI/LoginDialog.cpp ../My_Info_UI/LoginDialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o LoginDialog.o ../My_Info_UI/LoginDialog.cpp
 
+SettingDialog.o: ../My_Info_UI/SettingDialog.cpp ../My_Info_UI/SettingDialog.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o SettingDialog.o ../My_Info_UI/SettingDialog.cpp
+
 ViewDialog.o: ../My_Info_UI/ViewDialog.cpp ../My_Info_UI/ViewDialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ViewDialog.o ../My_Info_UI/ViewDialog.cpp
 
@@ -422,6 +436,9 @@ mainwindow.o: ../My_Info_UI/mainwindow.cpp ../My_Info_UI/mainwindow.h \
 
 moc_LoginDialog.o: moc_LoginDialog.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_LoginDialog.o moc_LoginDialog.cpp
+
+moc_SettingDialog.o: moc_SettingDialog.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_SettingDialog.o moc_SettingDialog.cpp
 
 moc_ViewDialog.o: moc_ViewDialog.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_ViewDialog.o moc_ViewDialog.cpp
