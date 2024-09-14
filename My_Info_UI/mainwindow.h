@@ -24,6 +24,10 @@ private slots:
     void on_view_clicked();
 
 private:
+    QString ten;
+    QString sinh;
+    QString que;
+    QString giaoduc;
     Ui::MainWindow *ui;
     ViewDialog *view;
 };

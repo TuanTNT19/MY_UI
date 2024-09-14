@@ -25,22 +25,9 @@ ViewDialog::ViewDialog(QWidget *parent) :
     setLayout(layout);
 }
 
-void ViewDialog::setName(const QString &name) {
-    ten = name;
-    Name->setText("Name: " + ten);
-}
-
-void ViewDialog::setBorn(const QString &born) {
-    sinh = born;
-    Born->setText("Born: " + sinh);
-}
-
-void ViewDialog::setHometown(const QString &hometown) {
-    que = hometown;
-    Hometown->setText("Hometown: " + que);
-}
-
-void ViewDialog::setEducation(const QString &education) {
-    giaoduc = education;
-    Education->setText("Education: " + giaoduc);
+void ViewDialog :: ShowInfor(const QString &name, const QString &born, const QString &hometown, const QString &education){
+    Name->setText("Name: " + name);
+    Born->setText("Born: " + born);
+    Hometown->setText("Name: " + hometown);
+    Education->setText("Education: " + education);
 }
