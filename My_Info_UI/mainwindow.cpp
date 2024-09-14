@@ -11,14 +11,14 @@ MainWindow::MainWindow(QWidget *parent)
     que = "Thanh Hoa";
     giaoduc = "HUST";
     ui->setupUi(this);
+
     view = new ViewDialog(this);
-    view->ShowInfor(ten, sinh, que, giaoduc);
 
     setting = new SettingDialog(this);
 
-    LoginDialog dn(this);
+    dn = new LoginDialog(this);
 
-    dn.exec();
+    dn->exec();
 
     connect(ui->view,  &QPushButton::clicked, this, &MainWindow::on_view_clicked);
     connect(ui->setting, &QPushButton::clicked, this, &MainWindow::on_setting_clicked);
@@ -28,17 +28,42 @@ MainWindow::~MainWindow()
 {
     delete ui;
     delete view;
+    delete setting;
 }
 
 
 
 void MainWindow::on_view_clicked()
 {
+    view->ShowInfor(ten, sinh, que, giaoduc);
     view->exec();
 
 }
 
+
 void MainWindow::on_setting_clicked()
 {
-    setting->exec();
+    if (setting->exec() == QDialog::Accepted){
+        QString newname = setting->getName();
+        QString newborn = setting->getBorn();
+        QString newhome = setting->getHometown();
+        QString newedu = setting->getEducation();
+
+        if (!newname.isEmpty()){
+            ten = newname;
+        }
+
+        if(!newborn.isEmpty()){
+            sinh = newborn;
+        }
+
+        if(!newhome.isEmpty()){
+            que = newhome;
+        }
+
+        if(!newedu.isEmpty()){
+            giaoduc = newedu;
+        }
+
+    }
 }

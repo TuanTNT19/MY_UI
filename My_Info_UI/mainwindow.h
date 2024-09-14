@@ -31,6 +31,7 @@ private:
     QString que;
     QString giaoduc;
     Ui::MainWindow *ui;
+    LoginDialog *dn;
     ViewDialog *view;
     SettingDialog *setting;
 };
