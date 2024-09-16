@@ -1,7 +1,5 @@
-
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -80,7 +78,6 @@ void MainWindow::on_ipshow_clicked()
 {
 
         ui->newWidget->setVisible(true);
-       // IP->exec();
         this->timer1->start();
         check_connection();
 }
@@ -99,23 +96,18 @@ bool MainWindow :: ping_Device(const QString &ipAddress){
     QProcess pingProcess;
     QElapsedTimer timer;
 
-    // Bắt đầu đo thời gian
     timer.start();
 
-    // Khởi động tiến trình ping
     pingProcess.start("ping", QStringList() << "-c" << "1" << ipAddress);
 
-    // Đợi tiến trình hoàn thành với timeout là 500ms
-    bool finishedInTime = pingProcess.waitForFinished(500);  // 500ms
+    bool finishedInTime = pingProcess.waitForFinished(500);  
 
-    // Nếu quá 500ms mà tiến trình chưa hoàn thành
     if (!finishedInTime) {
-        pingProcess.kill();  // Dừng tiến trình ping
+        pingProcess.kill();  
         qDebug() << "Ping quá thời gian cho phép (500ms)";
-        return false;  // Trả về kết quả "not connected"
+        return false;  
     }
 
-    // Lấy thời gian đã trôi qua
     qint64 elapsedTime = timer.elapsed();
     qDebug() << "Thời gian thực hiện ping: " << elapsedTime << " ms";
 
@@ -129,7 +121,7 @@ void MainWindow::updateStatusLabel(QLabel *statusLabel, bool connected)
     } else {
         statusLabel->setStyleSheet("QLabel { background-color : red; border-radius: 10px; }");
     }
-    statusLabel->setFixedSize(20, 20); // Đặt kích thước cố định cho QLabel là 20x20 pixels
+    statusLabel->setFixedSize(20, 20); 
 }
 
 void MainWindow::on_Cancel_clicked()
