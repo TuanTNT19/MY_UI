@@ -39,8 +39,9 @@ public:
     QLabel *ip1;
     QLabel *ip2;
     QLabel *ip3;
-    QPushButton *ipshow;
     QPushButton *IP_Setting;
+    QLabel *Label_Name;
+    QPushButton *ipshow;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -95,7 +96,7 @@ public:
         label_denbao3->setGeometry(QRect(440, 30, 21, 17));
         Cancel = new QPushButton(newWidget);
         Cancel->setObjectName(QString::fromUtf8("Cancel"));
-        Cancel->setGeometry(QRect(0, 0, 89, 25));
+        Cancel->setGeometry(QRect(428, 0, 81, 20));
         ip1 = new QLabel(newWidget);
         ip1->setObjectName(QString::fromUtf8("ip1"));
         ip1->setGeometry(QRect(400, 460, 101, 20));
@@ -105,12 +106,15 @@ public:
         ip3 = new QLabel(newWidget);
         ip3->setObjectName(QString::fromUtf8("ip3"));
         ip3->setGeometry(QRect(396, 130, 111, 20));
+        IP_Setting = new QPushButton(newWidget);
+        IP_Setting->setObjectName(QString::fromUtf8("IP_Setting"));
+        IP_Setting->setGeometry(QRect(300, 0, 131, 21));
+        Label_Name = new QLabel(newWidget);
+        Label_Name->setObjectName(QString::fromUtf8("Label_Name"));
+        Label_Name->setGeometry(QRect(106, 30, 261, 31));
         ipshow = new QPushButton(centralwidget);
         ipshow->setObjectName(QString::fromUtf8("ipshow"));
         ipshow->setGeometry(QRect(0, 110, 141, 41));
-        IP_Setting = new QPushButton(centralwidget);
-        IP_Setting->setObjectName(QString::fromUtf8("IP_Setting"));
-        IP_Setting->setGeometry(QRect(0, 150, 141, 41));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -142,8 +146,9 @@ public:
         ip1->setText(QString());
         ip2->setText(QString());
         ip3->setText(QString());
-        ipshow->setText(QApplication::translate("MainWindow", "Connection Show", nullptr));
         IP_Setting->setText(QApplication::translate("MainWindow", "IP Setting", nullptr));
+        Label_Name->setText(QString());
+        ipshow->setText(QApplication::translate("MainWindow", "Connection Show", nullptr));
     } // retranslateUi
 
 };

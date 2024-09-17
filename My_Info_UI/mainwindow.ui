@@ -183,10 +183,10 @@
     <widget class="QPushButton" name="Cancel">
      <property name="geometry">
       <rect>
-       <x>0</x>
+       <x>428</x>
        <y>0</y>
-       <width>89</width>
-       <height>25</height>
+       <width>81</width>
+       <height>20</height>
       </rect>
      </property>
      <property name="text">
@@ -232,6 +232,32 @@
       <string/>
      </property>
     </widget>
+    <widget class="QPushButton" name="IP_Setting">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>0</y>
+       <width>131</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>IP Setting</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="Label_Name">
+     <property name="geometry">
+      <rect>
+       <x>106</x>
+       <y>30</y>
+       <width>261</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
    </widget>
    <widget class="QPushButton" name="ipshow">
     <property name="geometry">
@@ -244,19 +270,6 @@
     </property>
     <property name="text">
      <string>Connection Show</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="IP_Setting">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>150</y>
-      <width>141</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>IP Setting</string>
     </property>
    </widget>
   </widget>
